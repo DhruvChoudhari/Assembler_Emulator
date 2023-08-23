@@ -1,0 +1,143 @@
+/*****************************************************************************
+TITLE: Claims																																
+AUTHOR:   Dhruv Choudhari
+ID:2101CS25
+
+Declaration of Authorship
+This txt file, claims.txt, is part of the miniproject of CS209/CS210 at the 
+department of Computer Science and Engg, IIT Patna . 
+*****************************************************************************/
+
+Files:
+==========
+*All the files i submitted, asm.c and emu.c and claims.txt, have my name and student id at the start, along with a declaration of authorship.
+
+The evidence for Assembler including the output files from the X  test examples has also been uploaded. They are test1(3 output files), test2(3 output files), test3
+(1 output file), memcpy(3 output files) and triangle(3 output files). All the test files have been tested and work properly. As for the evidence for the emulator is uploaded
+with two output files, memcpy.txt and triangle.txt.
+
+*Both of my c programs did not show any errors and warnings when i compiled it with
+gcc -std=c89 -pedantic and gcc -std=c89 -pedantic -W -Wall -Wpointer-arith -Wwrite-strings -Wstrict-prototypes standard  or equilvalent ....or gcc ... or g++
+
+*Two programs are compilable with gcc asm.c -o asm and gcc emu.c -o emu.
+
+
+=============================
+Program format and structure:
+=============================
+1. The assembler:
+
+    * with two data structures to store respectively labels and mnemonic table with expected operands.
+    * uses a single routine for both passes.
+    * detects label erros.
+    * consistent and sensible formatting with sensible program structure. 
+    * sensible variable, function & type names with explanatory comments.
+		* advanced listing file.
+		* assembles test programs.
+	  * can implements and demonstrates the instruction SET.
+
+2. The emulator ( if you are submitting) :
+
+		* with three data structures to store respectively memory, mnemonic table with expected operands
+		  and a linked list structure word.
+    * loads object file, 
+    * by giving the instructions like "-befor/-after" , the program can produce memory dump before/after execution.
+    * by giving the instruction like "-trace", the program prints the result of program executed.
+    * detects errant programs.
+
+
+=============================
+Testing:
+=============================
+
+1. The assembler:
+
+I have tested  5 examples shown as bellow. The errors only occurred in the file test2.asm and the program immediately stopped before the second pass. 
+
+The others were tested without any errors detected and produced three output files were generated : logFile.log, machinieCode.o, listCode.l 
+
+
+1)
+#Input:test1.asm
+#Output: 
+No errors found!
+1 warning detected
+Log code generated in: logFile.log
+Machine code generated in: machineCode.o
+Listing code generated in: listCode.l
+
+2)
+#Input:test2.asm
+#Output: 
+9 errors encountered! See logFile.log
+
+Log code generated in: logFile.log
+Error at line: 4 -- Type: Multiple declaration of label: label
+Error at line: 5 -- Type: No such label / data variable
+Error at line: 6 -- Type: Invalid number
+Error at line: 7 -- Type: Invalid OPCode-Syntax combination
+Error at line: 8 -- Type: Invalid OPCode-Syntax combination
+Error at line: 9 -- Type: Invalid OPCode-Syntax combination
+Error at line: 10 -- Type: Invalid label name
+Error at line: 11 -- Type: Invalid Mnemonic
+Error at line: 12 -- Type: Invalid Mnemonic
+
+
+3)
+#Input:test3.asm
+#Output: 
+No errors found!
+1 warning detected
+Log code generated in: logFile.log
+Machine code generated in: machineCode.o
+Listing code generated in: listCode.l
+
+
+4)
+#Input:test4.asm
+#Output: 
+No errors found!
+Log code generated in: logFile.log
+Machine code generated in: machineCode.o
+Listing code generated in: listCode.l
+
+// i have changed the starting hexadecimal value to int for testing in test4.asm
+
+5)
+#Input:BubbleSort
+#Output: 
+No errors found!
+Log code generated in: logFile.log
+Machine code generated in: machineCode.o
+Listing code generated in: listCode.l
+
+
+
+2. The emulator:
+
+I have tested three examples shown as bellow. The errors only occurred in the file test3.o and 
+the program immediately stopped and the terminal window closes. 
+
+The others were tested without any errors detected and produced excution data both on the screen and output text file for each example according to the usage instruction. 
+
+After running the bin file given, the trace data are the same as 
+the implemented result from my own program.
+
+machine Code is generated in "machineCode.o" file through assmebler so each time test file is passed through assembler its machineCode.o file is generated and if already present gets overwritten. Since input file name is machineCode.o everytime thus i have removed input option and this file is opened automatically. instructions are given to use emulator.
+
+1)
+#Input: machineCode.o //(already opened)
+#Output: (as per instructions)
+
+
+2)
+#Input:machineCode.o //(already opened)
+#Output: (as per instructions)
+
+
+3)
+#Input:machineCode.o //(already opened)
+#Output: Fail to complete. Terminal closes
+with error messages shown on the screen
+
+PC=00000000, SP=08049596, A=008172D0, B=0804958C Fatal error occurred! No instruction can be found!
